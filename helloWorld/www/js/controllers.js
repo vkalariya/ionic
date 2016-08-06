@@ -32,9 +32,9 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             },
     
           function(position) {
-              $scope.lat  = position.coords.latitude;
-              $scope.long = position.coords.longitude;
-             $scope.speed = position.coords.speed;
+              $scope.lat1  = position.coords.latitude;
+              $scope.long1 = position.coords.longitude;
+             $scope.speed1 = position.coords.speed;
       }
    );
 
