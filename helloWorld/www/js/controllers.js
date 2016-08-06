@@ -15,7 +15,10 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
         $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
             $scope.lat  = position.coords.latitude;
             $scope.long = position.coords.longitude;
-             $scope.speed = position.coords.speed;
+
+             var m = position.timestamp;
+             var d = new Date(m);
+             $scope.time = d.toLocaleString();
             $ionicLoading.hide(); 
           }, function(err) {
             $ionicLoading.hide();
@@ -35,7 +38,11 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             //alert("Done");
               $scope.lat1  = position.coords.latitude;
               $scope.long1 = position.coords.longitude;
-             $scope.speed1 = position.coords.speed;
+              var m = position.timestamp;
+             var d = new Date(m);
+             $scope.time1 = d.toLocaleString();
+             $scope.speed1 = position.coords.speed * 3.6;
+             //$scope.speed1 = positiontimestamp;
       }
    );
 
