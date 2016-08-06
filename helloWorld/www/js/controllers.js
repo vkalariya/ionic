@@ -21,7 +21,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             $ionicLoading.hide();
             alert(err);
         });
-         var watchOptions = {timeout : 3000, enableHighAccuracy: false};
+         var watchOptions = {timeout : 3000, enableHighAccuracy: true};
         var watch = $cordovaGeolocation.watchPosition(watchOptions);
   
         watch.then(
@@ -32,13 +32,14 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             },
     
           function(position) {
+            //alert("Done");
               $scope.lat1  = position.coords.latitude;
               $scope.long1 = position.coords.longitude;
              $scope.speed1 = position.coords.speed;
       }
    );
 
-   watch.clearWatch();
+   $cordovaGeolocation.clearWatch(watch.watchId);
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
