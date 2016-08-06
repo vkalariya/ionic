@@ -19,7 +19,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
             $ionicLoading.hide(); 
           }, function(err) {
             $ionicLoading.hide();
-            alert(err);
+            alert('ERROR(' + err.code + '): ' + err.message);
         });
          var watchOptions = {timeout : 3000, enableHighAccuracy: true};
         var watch = $cordovaGeolocation.watchPosition(watchOptions);
@@ -28,7 +28,7 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
               null,
     
             function(err) {
-             alert(err)
+             alert('ERROR(' + err.code + '): ' + err.message);
             },
     
           function(position) {
